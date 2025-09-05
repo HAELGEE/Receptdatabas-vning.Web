@@ -1,0 +1,20 @@
+﻿@model List<Dish>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Alla dina Rätter:</h1>
+
+    @if (Model.Count > 0)
+    {
+        @foreach (var dish in Model)
+        {
+            <h3><u>@dish.Name</u> - <a asp-controller="Home" asp-action="Index">Detaljer</a></h3>
+        }
+    }
+    else
+    {
+        <h2>DU ÄR BÖG</h2>
+    }
+</div>
