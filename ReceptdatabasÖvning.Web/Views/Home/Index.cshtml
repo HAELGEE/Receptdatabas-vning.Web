@@ -10,11 +10,16 @@
     {
         @foreach (var dish in Model)
         {
-            <h3><u>@dish.Name</u> - <a asp-controller="Home" asp-action="Index">Detaljer</a></h3>
+            <h3><u>@dish.Name</u> - <a asp-controller="Home" asp-action="Details" asp-route-id="@dish.Id">Detaljer</a></h3>
         }
     }
     else
     {
         <h2>DU ÄR BÖG</h2>
     }
+
+    <br />
+    <a asp-controller="Home" asp-action="AddDish">Lägg till Maträtt</a>
+    <br />
+    <a asp-controller="Home" asp-action="AddIngredience">Lägg till Ingridiens</a>
 </div>

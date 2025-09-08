@@ -31,10 +31,9 @@ public class IngredienceService : IIngredienceService
         _ingredienceRepository.AddIngredienceAsync(ingredience);
     }
 
-    public async Task EditIngredienceAsync(int id)
+    public async Task EditIngredienceAsync(List<Ingredience> ingredience, int id)
     {
-        Ingredience ingredience = await GetOneIngredienceAsync(id);
-
+        _ingredienceRepository.EditIngredienceAsync(ingredience, id);
     }
 
     public async Task DeleteIngredienceAsync(int id)

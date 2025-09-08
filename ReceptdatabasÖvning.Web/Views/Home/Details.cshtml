@@ -1,0 +1,23 @@
+﻿@model Dish
+
+<div>
+    <h3>@Model.Name</h3>
+    <a asp-controller="Home" asp-action="Update" asp-route-id="@Model.Id">Uppdatera Ingridienser</a>
+    <hr />
+    <br />
+    <h4><b>Info om maträtten:</b> @Model.Description</h4>
+    <br />
+    <ul>
+        @if (Model.Ingrediences.Count > 0)
+        {
+            @foreach (var ingrid in Model.Ingrediences)
+            {
+                <li>@ingrid.Name</li>
+            }
+        }
+    </ul>
+
+
+
+
+</div>

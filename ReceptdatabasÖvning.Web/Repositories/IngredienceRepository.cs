@@ -30,9 +30,13 @@ public class IngredienceRepository : IIngredienceRepository
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task EditIngredienceAsync(int id)
+    public async Task EditIngredienceAsync(List<Ingredience> ingredience, int id)
     {
-        Ingredience ingredience = await GetOneIngredienceAsync(id);
+        foreach (var item in ingredience)
+        {
+
+        }
+
 
     }
     public async Task DeleteIngredienceAsync(int id)

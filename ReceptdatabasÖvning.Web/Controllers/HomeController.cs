@@ -20,6 +20,40 @@ namespace ReceptdatabasÖvning.Web.Controllers
             return View(await _dishService.GetDishAsync());
         }
 
+        public async Task<IActionResult> Details(int id)
+        {
+            return View(await _dishService.GetOneDishAsync(id));
+        }
+
+        [HttpGet("adddish")]
+        public IActionResult AddDish()
+        {
+            return View();
+        }
+        [HttpPost("adddish")]
+        public async Task<IActionResult> AddDish(Dish dish)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            await _dishService.AddDishAsync(dish);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Update(int id)
+        {
+            return View(await _dishService.GetOneDishAsync(id));
+        }
+        [HttpPost("update")]
+        public async Task<IActionResult> Update(List<Ingredience> ingredience, int id)
+        {
+            await _ingredience.EditIngredienceAsync(ingredience, id);
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

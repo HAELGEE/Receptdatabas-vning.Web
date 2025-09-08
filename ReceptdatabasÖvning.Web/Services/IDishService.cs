@@ -3,7 +3,7 @@
 namespace ReceptdatabasÖvning.Web.Services;
 public interface IDishService
 {
-    Task AddDishAsync(Dish ingreddishence);
+    Task AddDishAsync(Dish Ingredience);
     Task DeleteDishAsync(int id);
     Task EditDishAsync(int id);
     Task<List<Dish>> GetDishAsync();
