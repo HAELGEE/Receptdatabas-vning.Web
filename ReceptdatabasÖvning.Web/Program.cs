@@ -1,5 +1,5 @@
+using EFCore;
 using Microsoft.EntityFrameworkCore;
-using ReceptdatabasÖvning.Web.Data;
 using ReceptdatabasÖvning.Web.Repositories;
 using ReceptdatabasÖvning.Web.Services;
 

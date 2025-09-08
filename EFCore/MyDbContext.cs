@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ReceptdatabasÖvning.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,6 @@ public class MyDbContext : DbContext
     {
     }
 
-    //public DbSet<Dish>? Dish { get; set; } = default!;
-    //public DbSet<Ingredience>? Ingredience { get; set; } = default!;
+    public DbSet<Dish>? Dish { get; set; } = default!;
+    public DbSet<Ingredience>? Ingredience { get; set; } = default!;
 }

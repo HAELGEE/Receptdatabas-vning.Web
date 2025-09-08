@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ReceptdatabasÖvning.Web.Data;
+﻿using EFCore;
+using Microsoft.EntityFrameworkCore;
 using ReceptdatabasÖvning.Web.Models;
 
 namespace ReceptdatabasÖvning.Web.Repositories;
