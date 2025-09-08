@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ReceptdatabasÖvning.Web;
+using System.ComponentModel.DataAnnotations;
 
-namespace ReceptdatabasÖvning.Web.Models;
+namespace ReceptdatabasÖvning.Web;
 
 public class Dish
 {

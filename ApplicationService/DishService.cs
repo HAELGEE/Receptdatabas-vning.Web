@@ -1,4 +1,4 @@
-﻿using ReceptdatabasÖvning.Web.Models;
+﻿using ReceptdatabasÖvning.Web;
 using ReceptdatabasÖvning.Web.Repositories;
 
 namespace ReceptdatabasÖvning.Web.Services;

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ReceptdatabasÖvning.Web.Models;
+using ReceptdatabasÖvning.Web;
+using ReceptdatabasÖvning.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;

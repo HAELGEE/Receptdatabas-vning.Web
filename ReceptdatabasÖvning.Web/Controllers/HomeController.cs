@@ -27,12 +27,12 @@ namespace ReceptdatabasÖvning.Web.Controllers
 
 
 
-        [HttpGet("adddish")]
+        [HttpGet("AddDish")]
         public IActionResult AddDish()
         {
             return View();
         }
-        [HttpPost("adddish")]
+        [HttpPost("AddDish")]
         public async Task<IActionResult> AddDish(Dish dish)
         {
             if (!ModelState.IsValid)
@@ -42,6 +42,25 @@ namespace ReceptdatabasÖvning.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+
+        [HttpGet("AddIngredience")]
+        public IActionResult AddIngredience()
+        {
+            return View();
+        }
+        [HttpPost("AddIngredience")]
+        public async Task<IActionResult> AddIngredience(Ingredience ingredience)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            await _ingredience.AddIngredienceAsync(ingredience);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
 
 
 
@@ -55,11 +74,11 @@ namespace ReceptdatabasÖvning.Web.Controllers
             return View(await _ingredience.GetIngrediencesAsync());
         }
         [HttpPost("update")]
-        public async Task<IActionResult> Update(List<Ingredience> ingredience, int id)
+        public async Task<IActionResult> Update(List<int> ingredienceIDs, int id)
         {
-            await _ingredience.EditIngredienceAsync(ingredience, id);
+            await _ingredience.EditIngredienceAsync(ingredienceIDs, id);
 
-            return RedirectToAction(nameof(Details));
+            return RedirectToAction(nameof(Details), new {id});
         }
 
 

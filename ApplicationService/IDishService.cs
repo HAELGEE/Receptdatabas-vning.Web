@@ -1,4 +1,4 @@
-﻿using ReceptdatabasÖvning.Web.Models;
+﻿using ReceptdatabasÖvning.Web;
 
 namespace ReceptdatabasÖvning.Web.Services;
 public interface IDishService

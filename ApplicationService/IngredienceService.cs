@@ -1,4 +1,4 @@
-﻿using ReceptdatabasÖvning.Web.Models;
+﻿using ReceptdatabasÖvning.Web;
 using ReceptdatabasÖvning.Web.Repositories;
 using System.Collections.Generic;
 
@@ -31,7 +31,7 @@ public class IngredienceService : IIngredienceService
         _ingredienceRepository.AddIngredienceAsync(ingredience);
     }
 
-    public async Task EditIngredienceAsync(List<Ingredience> ingredience, int id)
+    public async Task EditIngredienceAsync(List<int> ingredience, int id)
     {
         _ingredienceRepository.EditIngredienceAsync(ingredience, id);
     }

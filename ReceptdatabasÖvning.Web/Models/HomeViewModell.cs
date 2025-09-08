@@ -2,6 +2,6 @@
 
 public class HomeViewModell
 {
-    public Services.IIngredienceService IngredienceService { get; set; }
-    public Services.IDishService IDishService { get; set; }
+    //public Services.IIngredienceService IngredienceService { get; set; }
+    //public Services.IDishService IDishService { get; set; }
 }

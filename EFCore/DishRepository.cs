@@ -1,6 +1,6 @@
 ﻿using EFCore;
 using Microsoft.EntityFrameworkCore;
-using ReceptdatabasÖvning.Web.Models;
+using ReceptdatabasÖvning.Web;
 
 namespace ReceptdatabasÖvning.Web.Repositories;
 

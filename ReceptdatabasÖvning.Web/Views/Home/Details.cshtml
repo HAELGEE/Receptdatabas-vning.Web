@@ -7,6 +7,8 @@
     <br />
     <h4><b>Info om maträtten:</b> @Model.Description</h4>
     <br />
+    <br />
+    <h3><u>Ingredienser</u></h3>
     <ul>
         @if (Model.Ingrediences.Count > 0)
         {
@@ -14,6 +16,10 @@
             {
                 <li>@ingrid.Name</li>
             }
+        }
+        else
+        {
+            <p>Inga kopplade ingredienser till denna maträtten än</p>
         }
     </ul>
 

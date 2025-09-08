@@ -1,1 +1,17 @@
-﻿
+﻿@model Ingredience
+
+<div>
+
+    <form asp-controller="Home" asp-action="AddIngredience">
+
+        <label asp-for="Name"></label>
+        <br />
+        <input type="text" asp-for="Name" />
+        <br />
+               
+
+        <button type="submit">Lägg till</button>
+    </form>
+
+
+</div>
