@@ -25,6 +25,8 @@ namespace ReceptdatabasÖvning.Web.Controllers
             return View(await _dishService.GetOneDishAsync(id));
         }
 
+
+
         [HttpGet("adddish")]
         public IActionResult AddDish()
         {
@@ -41,18 +43,66 @@ namespace ReceptdatabasÖvning.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpGet]
+
+
+        [HttpGet("update")]
         public async Task<IActionResult> Update(int id)
         {
-            return View(await _dishService.GetOneDishAsync(id));
+            var dish = await _dishService.GetOneDishAsync(id);
+            ViewData["DishId"] = dish.Id;
+            ViewData["DishName"] = dish.Name;
+
+            return View(await _ingredience.GetIngrediencesAsync());
         }
         [HttpPost("update")]
         public async Task<IActionResult> Update(List<Ingredience> ingredience, int id)
         {
             await _ingredience.EditIngredienceAsync(ingredience, id);
 
-            return View();
+            return RedirectToAction(nameof(Details));
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public IActionResult Privacy()
         {

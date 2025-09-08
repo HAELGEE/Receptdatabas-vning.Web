@@ -1,1 +1,17 @@
-﻿@model Ingredience
+﻿@model List<Ingredience>
+
+<div>
+    <h2>Vilka ingredienser skall <b><u>@ViewData["DishName"]</u></b> innehålla?</h2>
+    <ul>
+        <form asp-controller="Home" asp-action="Update">
+
+            @foreach(var item in Model)
+            {
+                <h3><input type="checkbox" asp-controller="Home" asp-action="Update" /> @item.Name</h3>
+            }
+
+            <button type="submit" value="@ViewData["DishId"]">Uppdatera</button>
+        </form>
+    </ul>
+
+</div>
