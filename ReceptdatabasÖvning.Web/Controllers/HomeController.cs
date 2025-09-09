@@ -76,7 +76,7 @@ namespace ReceptdatabasÖvning.Web.Controllers
         [HttpPost("update")]
         public async Task<IActionResult> Update(List<int> ingredienceIDs, int id)
         {
-            await _ingredience.EditIngredienceAsync(ingredienceIDs, id);
+           _ingredience.EditIngredienceAsync(ingredienceIDs, id);
 
             return RedirectToAction(nameof(Details), new {id});
         }

@@ -9,7 +9,7 @@
             @foreach (var item in Model)
             {
                 <h3>
-                    <input type="checkbox" name="ingredienceIDs" value="@item.Id" @((item.Dishes?.Any(d => d.Id == (int)ViewData["DishId"])) == true ? "checked" : "")> @item.Name
+                    <input type="checkbox" name="ingredienceIDs" value="@item.Id" > @item.Name
 
                 </h3>
             }

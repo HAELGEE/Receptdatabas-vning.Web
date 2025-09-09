@@ -15,5 +15,5 @@ public class Dish
     [Required]
     public string? Description { get; set; }
 
-    public ICollection<Ingredience>? Ingrediences { get; set; }
+    public ICollection<Ingredience>? Ingrediences { get; set; } = new List<Ingredience>();
 }

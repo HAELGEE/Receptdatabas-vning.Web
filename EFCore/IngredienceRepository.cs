@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using ReceptdatabasÖvning.Web;
 using ReceptdatabasÖvning.Web.Services;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ReceptdatabasÖvning.Web.Repositories;
 
@@ -35,27 +36,24 @@ public class IngredienceRepository : IIngredienceRepository
 
     public async Task EditIngredienceAsync(List<int> ingredienceID, int id)
     {
-        var dish = await _dbContext.Dish
-            .Include(d => d.Ingrediences)
-            .FirstOrDefaultAsync();
-
-        if (dish == null)        
+        var dish = await _dishRepository.GetOneDishAsync(id);
+                     
+        if (dish == null)
             return;
+               
 
-        dish.Ingrediences.Clear();
-
-
-        var ingrediences = await _dbContext.Ingredience
-            .Where(i => ingredienceID.Contains(i.Id))
-            .Include(i => i.Dishes)
-            .ToListAsync();
-
-        foreach (var ing in ingrediences)
+        foreach (var item in ingredienceID)
         {
-            dish.Ingrediences.Add(ing);
-            ing.Dishes.Add(dish);
+            foreach (var ing in await GetIngrediencesAsync())
+            {
+                if (item == ing.Id)
+                {
+                    dish.Ingrediences.Add(ing);
+                }
+            }
         }
-            await _dbContext.SaveChangesAsync();
+                    await _dbContext.SaveChangesAsync();
+
     }
     public async Task DeleteIngredienceAsync(int id)
     {

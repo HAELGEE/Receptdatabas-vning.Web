@@ -36,7 +36,7 @@ namespace ReceptdatabasÖvning.Web.Migrations
                     b.ToTable("DishIngredience");
                 });
 
-            modelBuilder.Entity("ReceptdatabasÖvning.Web.Models.Dish", b =>
+            modelBuilder.Entity("ReceptdatabasÖvning.Web.Dish", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,9 +45,11 @@ namespace ReceptdatabasÖvning.Web.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -55,7 +57,7 @@ namespace ReceptdatabasÖvning.Web.Migrations
                     b.ToTable("Dish");
                 });
 
-            modelBuilder.Entity("ReceptdatabasÖvning.Web.Models.Ingredience", b =>
+            modelBuilder.Entity("ReceptdatabasÖvning.Web.Ingredience", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,6 +66,7 @@ namespace ReceptdatabasÖvning.Web.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -73,13 +76,13 @@ namespace ReceptdatabasÖvning.Web.Migrations
 
             modelBuilder.Entity("DishIngredience", b =>
                 {
-                    b.HasOne("ReceptdatabasÖvning.Web.Models.Dish", null)
+                    b.HasOne("ReceptdatabasÖvning.Web.Dish", null)
                         .WithMany()
                         .HasForeignKey("DishesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ReceptdatabasÖvning.Web.Models.Ingredience", null)
+                    b.HasOne("ReceptdatabasÖvning.Web.Ingredience", null)
                         .WithMany()
                         .HasForeignKey("IngrediencesId")
                         .OnDelete(DeleteBehavior.Cascade)

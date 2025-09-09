@@ -2,6 +2,7 @@ using EFCore;
 using Microsoft.EntityFrameworkCore;
 using ReceptdatabasÖvning.Web.Repositories;
 using ReceptdatabasÖvning.Web.Services;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace ReceptdatabasÖvning.Web
 {
@@ -12,8 +13,10 @@ namespace ReceptdatabasÖvning.Web
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddDbContext<MyDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("MyDbContext"))
-                );
+                //options.UseSqlServer(@"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Restaurant;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False")
+                options.UseSqlServer(builder.Configuration.GetConnectionString("MyDbContext"),
+                sqlOptions => sqlOptions.MigrationsAssembly("ReceptdatabasÖvning.Web")
+                ));
 
             builder.Services.AddScoped<IDishRepository ,DishRepository>();
             builder.Services.AddScoped<IDishService ,DishService>();
